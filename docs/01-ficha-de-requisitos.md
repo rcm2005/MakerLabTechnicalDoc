@@ -3,7 +3,12 @@
 > **Disciplina:** Project-based Maker Lab  
 > **Curso:** Engenharia de Software — FIAP  
 > **Docente:** Profª Dra. Gedeane G.S. Kenshima (`profgedeane.kenshima@fiap.com.br`)  
-> **Projeto:** Carrinho-Robô Autônomo / Controlado via Bluetooth (Chassi 2WD Diferencial)
+> **Projeto:** Carrinho-Robô Autônomo / Controlado via Bluetooth (Chassi 2WD Diferencial)  
+> **Integrantes:**  
+> - Rafael Carvalho Mattos (RM 99874)  
+> - Rafael Autieri dos Anjos (RM 550885)  
+> - Luiza Cristina Silva (RM 99367)  
+> - Levy Nascimento Junior (RM 98655)
 
 ---
 

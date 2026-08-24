@@ -14,13 +14,12 @@
 
 ## 👥 1. Identificação do Grupo e Repositório
 
-| Integrante | RM / Identificação | E-mail / GitHub | Responsabilidade Principal |
-| :--- | :---: | :---: | :--- |
-| **Rafael Carvalho Mattos** | RM 55... | `rcm2005@icloud.com` / [@rcm2005](https://github.com/rcm2005) | Arquitetura de Hardware & Documentação Técnica |
-| *[Nome do Integrante 2]* | RM ... | `email@fiap.com.br` | Modelagem CAD & Fabricação Mecânica |
-| *[Nome do Integrante 3]* | RM ... | `email@fiap.com.br` | Desenvolvimento de Firmware Arduino |
-| *[Nome do Integrante 4]* | RM ... | `email@fiap.com.br` | Integração de Sensores e Telemetria |
-| *[Nome do Integrante 5]* | RM ... | `email@fiap.com.br` | Testes de Confiabilidade & Validação |
+| Integrante | RM / Identificação | Responsabilidade Principal |
+| :--- | :---: | :--- |
+| **Rafael Carvalho Mattos** | RM 99874 | Arquitetura de Hardware, Documentação Técnica & Repositório |
+| **Rafael Autieri dos Anjos** | RM 550885 | Firmware Arduino, Lógica de Controle & Sensores |
+| **Luiza Cristina Silva** | RM 99367 | Modelagem Estrutural, Croqui & Especificações Mecânicas |
+| **Levy Nascimento Junior** | RM 98655 | Eletrônica de Potência, Integração de Hardware & Testes |
 
 > 🔗 **Link Oficial do Repositório no GitHub:**  
 > [https://github.com/rcm2005/MakerLabTechnicalDoc.git](https://github.com/rcm2005/MakerLabTechnicalDoc.git)
