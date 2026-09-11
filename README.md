@@ -125,6 +125,18 @@ O diagrama oficial em alta resolução com todas as cotas milimétricas encontra
   <img src="assets/chassi_croqui_tecnico.svg" alt="Croqui Técnico do Chassi do Robô 2WD" width="95%"/>
 </p>
 
+### 🖨️ Modelo 3D para Fabricação Digital (STL do Chassi)
+
+Para viabilizar a prototipagem física por meio de **Manufatura Aditiva (Impressão 3D FDM)** ou corte a laser, o modelo tridimensional da base do chassi está disponível no diretório de assets:
+
+- 📦 **Arquivo de Modelo 3D:** [`assets/STL_Chassi.zip`](assets/STL_Chassi.zip) (contém `base rafa.stl`)
+- 🎯 **Compatibilidade:** Pronto para importação e fatiamento em softwares como *UltiMaker Cura*, *PrusaSlicer* ou *Bambu Studio*.
+- ⚙️ **Parâmetros Recomendados de Impressão:**
+  - **Material:** PLA ou PETG
+  - **Preenchimento (*Infill*):** $\ge 25\%$ (padrão *Gyroid* ou *Grid*)
+  - **Espessura de Parede:** $\ge 3,0\text{ mm}$ (mínimo de 3 a 4 perímetros)
+  - **Furações Integradas:** Furos de fixação direta para Arduino Uno R3, Ponte H L298N, suporte dos Motores TT e Roda Boba frontal conforme cotas normalizadas.
+
 ---
 
 ## 🛠️ 6. Diretrizes de Fabricação e Tolerâncias Dimensionais
@@ -307,6 +319,7 @@ A documentação completa e detalhada foi particionada nos seguintes arquivos de
 - 📐 [`docs/03-croqui-e-layout-estrutural.md`](docs/03-croqui-e-layout-estrutural.md) — Coordenadas cartesianas de furação, vistas explodidas e análise cinemática.
 - ⚡ [`docs/04-esquematico-eletrico.md`](docs/04-esquematico-eletrico.md) — Diagrama unifilar, dimensionamento da bateria e filtragem de ruído.
 - 🎨 [`assets/chassi_croqui_tecnico.svg`](assets/chassi_croqui_tecnico.svg) — Arquivo vetorial master do croqui em escala com cotas milimétricas.
+- 🖨️ [`assets/STL_Chassi.zip`](assets/STL_Chassi.zip) — Modelo 3D da base do chassi em formato STL (`base rafa.stl`) para manufatura aditiva (impressão 3D) e corte a laser.
 
 ---
 

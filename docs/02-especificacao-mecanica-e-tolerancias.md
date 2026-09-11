@@ -45,6 +45,7 @@ A tabela abaixo define os ajustes dimensionais incorporados nos modelos CAD do c
 
 1. **Estrutura Base (Deck Inferior e Superior):**
    - Fabricada em chapa de 3.0 mm de acrílico cortado a laser ou placa de PLA impresso com 100% de preenchimento nos pontos de fixação e 30% *Gyroid* no restante para redução de peso.
+   - O arquivo pronto para impressão 3D (FDM) encontra-se compactado em [`../assets/STL_Chassi.zip`](../assets/STL_Chassi.zip) (contém `base rafa.stl`).
    - Distância entre decks mantida em 25 mm através de 4 espaçadores sextavados de nylon ou latão M3x25mm.
 
 2. **Fixação dos Motores TT:**
