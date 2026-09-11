@@ -38,16 +38,20 @@ O projeto consiste no desenvolvimento de um **carrinho-robô móvel com tração
 
 Esta tabela cumpre a exigência da atividade prática proposta no slide 13 da **Aula 15 – Mecânica**:
 
-| Componente | Comprimento (mm) | Largura (mm) | Altura (mm) | Massa Aprox. (g) | Forma de Fixação Mecânica |
-| :--- | :---: | :---: | :---: | :---: | :--- |
-| **Motor Esquerdo (TT Amarelo)** | 70,0 | 22,4 | 19,0 | 30 g | 2x Parafusos M3 x 30 mm transversais com porcas e suporte lateral em "L" de PLA/Acrílico |
-| **Motor Direito (TT Amarelo)** | 70,0 | 22,4 | 19,0 | 30 g | 2x Parafusos M3 x 30 mm transversais com porcas e suporte lateral em "L" de PLA/Acrílico |
-| **Arduino Uno R3 (Controladora)** | 68,6 | 53,4 | 15,0 | 25 g | 4x Parafusos M3 x 8 mm com espaçadores de nylon (standoffs) de 6 mm da base |
-| **Ponte H (Módulo L298N)** | 43,5 | 43,5 | 27,0 | 26 g | 4x Parafusos M3 x 10 mm nos cantos da placa com arruelas isolantes |
-| **Bateria (Suporte 2x 18650)** | 76,0 | 41,0 | 20,0 | 110 g (c/ células) | Encaixe tipo trilho deslizante (*snap-in*) com fita de fixação rápida (Velcro) para remoção imediata |
-| **Sensor Ultrassônico (HC-SR04)** | 45,0 | 20,0 | 15,0 | 9 g | Suporte vertical frontal com recorte para transdutores (Ø 16 mm espaçados em 26 mm) e trava de pressão |
-| **Roda Boba (Caster Wheel Ø25mm)**| 38,0 | 32,0 | 35,0 | 22 g | 4x Parafusos M3 x 10 mm com contraporcas fixadas sob a base dianteira |
-| **2x Rodas Principais (Ø65mm)** | Ø 65,0 | 26,5 | Ø 65,0 | 38 g cada | Encaixe direto no eixo duplo-D do motor TT travado com parafuso central autoatarraxante |
+| Componente | Comprimento (mm) | Largura (mm) | Altura (mm) | Massa Estimada (g) | Forma de Fixação Mecânica Adotada | Datasheet / Referência Técnica |
+| :--- | :---: | :---: | :---: | :---: | :--- | :---: |
+| **Placa Arduino Uno R3** | 68,6 | 53,4 | 15,0 | 25 g | 4x Parafusos M3 x 8 mm em espaçadores (*standoffs*) de nylon de 6 mm | [Datasheet Uno R3 (ATmega328P)](https://docs.arduino.cc/resources/datasheets/A000066-datasheet.pdf) |
+| **Placa ESP32 (DevKit V1)** *(Opção)* | 51,0 | 28,0 | 14,0 | 10 g | 4x Parafusos M3 ou Encaixe direto em mini Protoboard | [Datasheet ESP32 (Espressif)](https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf) |
+| **Motor DC Gear (TT Motor 1:48)** | 70,0 | 22,4 | 19,0 | 30 g (cada) | 2x Parafusos M3 x 30 mm passantes com suporte "L" lateral | [Specs TT Motor DC](https://components101.com/motors/tt-motor-smart-car-gear-motor) |
+| **Ponte H (Driver L298N)** | 43,5 | 43,5 | 27,0 | 26 g | 4x Parafusos M3 x 10 mm com arruelas isolantes na base | [Datasheet L298N (ST)](https://www.sparkfun.com/datasheets/Robotics/L298_H_Bridge.pdf) |
+| **Sensor Ultrassônico (HC-SR04)** | 45,0 | 20,0 | 15,0 | 9 g | Suporte vertical em PLA/Acrílico com trava de pressão (*snap-fit*) | [Datasheet HC-SR04](https://components101.com/sensors/hc-sr04-ultrasonic-sensor) |
+| **Sensor Seguidor de Linha (TCRT5000)** | 35,0 | 10,0 | 15,0 | 5 g (cada) | Parafusos M3 na face inferior do chassi voltados para o solo | [Datasheet TCRT5000 (Vishay)](https://www.vishay.com/docs/83760/tcrt5000.pdf) |
+| **Módulo Bluetooth (HC-05 / HC-06)** | 37,3 | 15,5 | 4,0 | 4 g | Fita dupla-face 3M / presilha no deck superior | [Datasheet HC-05](https://components101.com/wireless/hc-05-bluetooth-module) |
+| **Slot de Bateria (Pack 2x 18650)** | 76,0 | 41,0 | 20,0 | 110 g (c/ células) | Encaixe tipo gaveta/trilho deslizante e cinta de velcro rápida | [Datasheet Li-ion 18650](https://www.ineltro.ch/media/downloads/sae/panasonic/18650.pdf) |
+| **Slot de Bateria (4x AA)** *(Alternativo)* | 58,0 | 62,0 | 15,0 | 85 g (c/ pilhas) | Fita dupla face industrial ou parafusos M3 escareados | [Specs Suporte 4x AA](https://components101.com/misc/aa-battery-holder) |
+| **Roda Boba (Caster Wheel Ø25mm)** | 38,0 | 32,0 | 35,0 | 22 g | 4x Parafusos M3 x 10 mm fixados na parte inferior dianteira | [Specs Roda Boba](https://components101.com/misc/caster-wheel-mechanics) |
+| **2x Rodas Tratoras (Ø65mm)** | Ø 65,0 | 26,5 | Ø 65,0 | 76 g (par) | Acoplamento sob pressão no eixo duplo "D" c/ parafuso central | [Specs Roda 65mm TT](https://components101.com/misc/smart-car-wheel) |
+| **Chave Gangorra Geral (KCD11)** | 15,0 | 10,5 | 19,0 | 3 g | Encaixe por pressão (*snap-in*) na borda lateral do deck superior | [Specs Chave KCD11](https://components101.com/switches/rocker-switch) |
 
 ---
 

@@ -10,6 +10,8 @@ O diagrama vetorial com cotas milimétricas em padrão de engenharia encontra-se
 
 ![Croqui Técnico Estrutural](../assets/chassi_croqui_tecnico.svg)
 
+> 🖨️ **Modelo Tridimensional para Manufatura Aditiva:** O arquivo STL da base estrutural com todas as furações e geometrias cotadas acima está disponível para download em [`assets/STL_Chassi.zip`](../assets/STL_Chassi.zip) (contém `base rafa.stl`).
+
 ---
 
 ## 2. Layout em Camadas (Vista Explodida Estrutural)
