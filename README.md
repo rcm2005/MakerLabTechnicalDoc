@@ -302,6 +302,9 @@ flowchart LR
     ARD == "GND Referência Comum" ==> BT
 ```
 
+> [!WARNING]
+> **Versão ESP32 com 4x pilhas AA:** o regulador 78M05 da ponte H precisa de ~7 V na entrada para entregar 5 V. Com pilhas AA, foi medido **2,90 V no pino `3V3` do ESP32 com os motores girando** (mínimo: 3,0 V), o que derrubava o Wi-Fi. Nessa configuração, o ESP32 deve ter fonte própria (powerbank no USB ou bateria 9V no `VIN`), com apenas o GND em comum. Ver [`docs/05-firmware-esp32-e-diagnostico.md`](docs/05-firmware-esp32-e-diagnostico.md).
+
 #### 🛡️ Medidas de Proteção e Eficiência Elétrica Implementadas:
 1. **Regulador Integrado 78M05 da Ponte H:** Converte os $7.4\text{ V}$ da bateria em $5\text{ V}$ limpos para alimentar a lógica do Arduino Uno, sem superaquecer o regulador linear do microcontrolador.
 2. **Aterramento Unificado (Common GND):** O GND da bateria, o GND da Ponte H e o GND do Arduino são interligados para evitar flutuação de nível lógico nas portas digitais.
@@ -318,6 +321,8 @@ A documentação completa e detalhada foi particionada nos seguintes arquivos de
 - ⚙️ [`docs/02-especificacao-mecanica-e-tolerancias.md`](docs/02-especificacao-mecanica-e-tolerancias.md) — Regras de fabricação digital, compensações térmicas e análise de manutenibilidade.
 - 📐 [`docs/03-croqui-e-layout-estrutural.md`](docs/03-croqui-e-layout-estrutural.md) — Coordenadas cartesianas de furação, vistas explodidas e análise cinemática.
 - ⚡ [`docs/04-esquematico-eletrico.md`](docs/04-esquematico-eletrico.md) — Diagrama unifilar, dimensionamento da bateria e filtragem de ruído.
+- 📡 [`docs/05-firmware-esp32-e-diagnostico.md`](docs/05-firmware-esp32-e-diagnostico.md) — Pinagem final do ESP32, alimentação separada, firmware de controle Wi-Fi com failsafe e registro de diagnóstico de bancada (medições de tensão).
+- 💾 [`firmware/carrinho_esp32/carrinho_esp32.ino`](firmware/carrinho_esp32/carrinho_esp32.ino) — Firmware do ESP32: controle pelo celular via Wi-Fi próprio (`Carrinho_MakerLab`, `http://192.168.4.1`).
 - 🎨 [`assets/chassi_croqui_tecnico.svg`](assets/chassi_croqui_tecnico.svg) — Arquivo vetorial master do croqui em escala com cotas milimétricas.
 - 🖨️ [`assets/STL_Chassi.zip`](assets/STL_Chassi.zip) — Modelo 3D da base do chassi em formato STL (`base rafa.stl`) para manufatura aditiva (impressão 3D) e corte a laser.
 
