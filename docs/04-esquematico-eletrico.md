@@ -8,12 +8,12 @@
 
 | Componente Periférico | Pino do Periférico | Pino no Arduino Uno | Pino no ESP32 *(Opção)* | Tipo de Sinal | Função do Sinal |
 | :--- | :---: | :---: | :---: | :---: | :--- |
-| **Driver L298N** | `ENA` | `D5` (PWM) | `GPIO 14` (PWM) | Digital (PWM ~980Hz) | Controle de Velocidade Motor Esquerdo |
-| **Driver L298N** | `IN1` | `D6` | `GPIO 27` | Digital Output | Direção Sentido Horário Motor Esquerdo |
-| **Driver L298N** | `IN2` | `D7` | `GPIO 26` | Digital Output | Direção Sentido Anti-horário Motor Esquerdo |
-| **Driver L298N** | `IN3` | `D8` | `GPIO 25` | Digital Output | Direção Sentido Horário Motor Direito |
-| **Driver L298N** | `IN4` | `D9` | `GPIO 33` | Digital Output | Direção Sentido Anti-horário Motor Direito |
-| **Driver L298N** | `ENB` | `D10` (PWM) | `GPIO 32` (PWM) | Digital (PWM ~490Hz) | Controle de Velocidade Motor Direito |
+| **Driver L298N** | `ENA` | `D5` (PWM) | Jumper no `5V` da ponte H | Digital (PWM ~980Hz) | Controle de Velocidade Motor Esquerdo |
+| **Driver L298N** | `IN1` | `D6` | `GPIO 32` | Digital Output | Direção Sentido Horário Motor Esquerdo |
+| **Driver L298N** | `IN2` | `D7` | `GPIO 33` | Digital Output | Direção Sentido Anti-horário Motor Esquerdo |
+| **Driver L298N** | `IN3` | `D8` | `GPIO 26` | Digital Output | Direção Sentido Horário Motor Direito |
+| **Driver L298N** | `IN4` | `D9` | `GPIO 27` | Digital Output | Direção Sentido Anti-horário Motor Direito |
+| **Driver L298N** | `ENB` | `D10` (PWM) | Jumper no `5V` da ponte H | Digital (PWM ~490Hz) | Controle de Velocidade Motor Direito |
 | **Sensor HC-SR04** | `VCC` | `5V` | `VIN (5V)` | Alimentação | Tensão de Operação 5V |
 | **Sensor HC-SR04** | `GND` | `GND` | `GND` | Referência | Terra Elétrico Comum |
 | **Sensor HC-SR04** | `TRIG` | `D12` | `GPIO 13` | Digital Output | Pulso de Disparo Ultrassônico (10 µs) |
@@ -24,6 +24,9 @@
 | **Bluetooth HC-05** | `GND` | `GND` | `GND` | Referência | Terra Elétrico Comum |
 | **Bluetooth HC-05** | `TXD` | `D2` (SoftSerial RX)| `GPIO 16` (UART2 RX) | Digital Input | Recepção de Comandos do Smartphone |
 | **Bluetooth HC-05** | `RXD` | `D3` (SoftSerial TX)| `GPIO 17` (UART2 TX) | Digital Output | Transmissão (Divisor 5V->3.3V) |
+
+> [!NOTE]
+> **Pinagem do ESP32 atualizada após os testes de bancada.** A coluna ESP32 da ponte H reflete a montagem real: `IN1`–`IN4` em `GPIO 32`, `33`, `26` e `27`, com `ENA`/`ENB` jumpeados (sem controle de velocidade por PWM). O `GPIO 25` foi abandonado por instabilidade, e os `GPIO 34`–`39` são somente entrada. Na versão ESP32, o controle é feito por Wi-Fi (página web), não pelo HC-05. Detalhes, firmware e diagnóstico em [`05-firmware-esp32-e-diagnostico.md`](05-firmware-esp32-e-diagnostico.md).
 
 ---
 
@@ -136,3 +139,4 @@ flowchart LR
 2. **Divisor de Tensão no RX do Bluetooth:** Como o pino RX do módulo HC-05 opera em nível lógico de $3.3\text{ V}$, utiliza-se um divisor resistivo ($R_1 = 1\text{ k}\Omega$, $R_2 = 2\text{ k}\Omega$) entre a saída `D3` ($5\text{ V}$) do Arduino e o pino `RX` do módulo para evitar danos térmicos no chip Bluetooth.
 3. **Isolamento de Corrente Reversa (Flyback Diodes):** O circuito da Ponte H L298N conta com uma ponte de 8 diodos de roda-livre (*flyback*) que absorve picos indutivos de força contra-eletromotriz (*Back-EMF*) gerados durante a reversão de giro e frenagem dos motores.
 4. **Isolamento do Barramento Lógico:** A alimentação dos motores não passa pelas trilhas do microcontrolador Arduino, garantindo que picos de torque e corrente elevada ($\sim 1\text{ A}$ por motor sob partida/travamento) não causem *brownout* ou *reset* inesperado no processador.
+5. **Alimentação separada para o ESP32 (lição de bancada):** com 4x pilhas AA (~5,7 V), o regulador 78M05 da ponte H não consegue entregar 5 V. Foi medido **2,90 V no pino `3V3` do ESP32 com os motores girando**, abaixo do mínimo de 3,0 V, o que derrubava o Wi-Fi. Na versão ESP32 com pilhas AA, o microcontrolador deve ser alimentado por fonte própria (powerbank no USB ou bateria 9V no `VIN`), mantendo apenas o GND em comum. Ver [`05-firmware-esp32-e-diagnostico.md`](05-firmware-esp32-e-diagnostico.md).
